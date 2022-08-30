@@ -151,6 +151,9 @@ func unmarshal(value interface{}, data string) (err error) {
 }
 
 func marshal(value interface{}) string {
+	if value == nil {
+		return "NULL"
+	}
 	if reflect.TypeOf(value).Kind() == reflect.Slice {
 		var res []string
 		v := reflect.ValueOf(value)
